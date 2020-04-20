@@ -12,9 +12,11 @@ The requests were sent using python's 3rd party library: requests.
 
 What things you need to install the software and how to install them
 
+1. Install python ( Don't forget to add python to path)
 ```
 Python 3 (https://www.python.org/downloads/)
-```
+```  
+2. Install 3rd party libraries
 ```
 3rd party libraries that will be listed in the installing section
 ```
