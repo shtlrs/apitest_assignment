@@ -23,7 +23,7 @@ class apiClient:
         
         :param body: the content that will be used to create the gist
         :type body: json
-        :param access_token: the authentification token to allow access to gists
+        :param access_token: the authentication token to allow access to gists
         :type access_token: string
 
         """
@@ -65,7 +65,7 @@ class apiClient:
         Retrieve a specific gist by it's id
         :param id: id of the gist to be read
         :type id: int
-        :param access_token: the authentification token to allow access to gists
+        :param access_token: the authentication token to allow access to gists
         :type access_token: string
         """
         self.response = requests.get(url=self.endpoint+'/'+id,
@@ -79,7 +79,7 @@ class apiClient:
         Deletes a specific gist by id
         :param id: id of the gist to be deleted
         :type id: int
-        :param access_token: the authentification token to allow access to gists
+        :param access_token: the authentication token to allow access to gists
         :type access_token: string
         """
         self.response = requests.delete(url=self.endpoint + '/' + id,
@@ -96,7 +96,7 @@ class apiClient:
         :type id: int
         :param body: the content that will be used to create the gist
         :type body: json
-        :param access_token: the authentification token to allow access to gists
+        :param access_token: the authentication token to allow access to gists
         :type access_token: string
 
         """

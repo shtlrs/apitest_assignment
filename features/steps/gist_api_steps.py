@@ -20,18 +20,18 @@ gist_2 = literal_eval(parser.get("BODY","gist_2"))
 gist_3 = literal_eval(parser.get("BODY","gist_3"))
 gist_4 = literal_eval(parser.get("BODY","gist_4"))
 gist_5 = literal_eval(parser.get("BODY","gist_5"))
-invalid_gist_1 = literal_eval(parser.get("BODY","invalid_gist_1"))
-invalid_gist_2 = literal_eval(parser.get("BODY","invalid_gist_2"))
-invalid_gist_3 = literal_eval(parser.get("BODY","invalid_gist_3"))
-invalid_gist_4 = literal_eval(parser.get("BODY","invalid_gist_4"))
-invalid_gist_5 = literal_eval(parser.get("BODY","invalid_gist_5"))
+string_gist = literal_eval(parser.get("BODY","string_gist"))
+int_gist = literal_eval(parser.get("BODY","int_gist"))
+boolean_gist = literal_eval(parser.get("BODY","boolean_gist"))
+list_gist = literal_eval(parser.get("BODY","list_gist"))
+improper_dict_gist = literal_eval(parser.get("BODY","improper_dict_gist"))
 
 
 #----------Creating an instance of the api Client class-----------#
 
 client = apiClient(url+gists_endpoint)
 
-@given('user creates a new gist with {state} json body')
+@given('user creates a new gist with {state}')
 def step_create_new_gist(context,state):
     """
     Create gists with valid and invalid json body
@@ -42,26 +42,34 @@ def step_create_new_gist(context,state):
     :type state: string
     """
 
-    if state =="valid":
+    if state =="valid_json_body":
         client.create_gist(gist_1,access_token)
-    elif state == "invalid":
-        client.create_gist(invalid_gist_5,access_token)
+    elif state == "invalid_json_body":
+        client.create_gist(improper_dict_gist,access_token)
+    elif state ==  "a_string":
+        client.create_gist(string_gist,access_token)
+    elif state == "an_int":
+        client.create_gist(int_gist,access_token)
+    elif state == "a_boolean":
+        client.create_gist(boolean_gist,access_token)
+    elif state == "a_list":
+        client.create_gist(list_gist,access_token)
 
-@given('user creates a new gist with {type} token')
-def step_create_new_gist_invalid_token(context,type):
+@given('user authenticates with {token}')
+def step_authentication(context,token):
     """
-    Create gist with invalid token or no token at all
+
+    Authentication with wrong credentials
 
     :param context: object used to hold contextual information during the running of tests
-    :param type: token used for authentification
-    :type type: string
+
+    :param token: type of token used for authentication
+    :type token: string
     """
-    if type == "invalid":
+    if token == "invalid_token":
         client.create_gist(gist_1,"wrongacesstoken")
-    elif type == "no":
+    elif token =="no_token":
         client.create_gist(gist_1, '')
-
-
 
 
 @given('user searches for an {state} gist by id')
