@@ -8,7 +8,7 @@ This project was written in python to test Github's gist api.
 The test cases were developped using the Behavior Driven Development method.  
 The requests were sent using python's 3rd party library: requests.
 
-### Prerequisites
+### 1. Prerequisites
 
 To be able to run the tests, python and the 3rd party modules need to be installed.
 Depending on your plateform, here's how to do proceed:
@@ -21,7 +21,9 @@ Open a terminal and execute the following:
 sudo apt-get update
 sudo apt-get install python3.6
 ```  
-2. Install 3rd party libraries  
+
+ 2 . Install 3rd party libraries
+
 After having installed python,  open a terminal in the project's root directory and execute the following
 ```
 pip install -r ./requirements.txt
@@ -32,7 +34,7 @@ Open a terminal and execute the following:
 ```
 brew install python
 ```  
-2. Install 3rd party libraries  
+2 . Install 3rd party libraries  
 After having installed python,  open a terminal in the project's root directory and execute the following
 ```
 pip install -r ./requirements.txt
@@ -42,15 +44,15 @@ pip install -r ./requirements.txt
 ```
 Python 3 (https://www.python.org/downloads/)
 ```  
-2. Install 3rd party libraries  
+2 .Install 3rd party libraries  
 After having installed python,  open a terminal in the project's root directory and execute the following
 ```
 pip install -r ./requirements.txt
 ```
 
-## Running the tests
+### 2. Running the tests
 
-###Note:  
+#### Note:  
 Before running the tests, you need to put in your personal acces token in the config file: section "KEYS"  
 Here are the steps to create a personal access token:  
 https://github.blog/2013-05-16-personal-api-tokens/
@@ -61,20 +63,20 @@ To run all the test cases, open a terminal in the project's root directory and t
 ```
 behave
 ```
-## Running the tests and saving results into a result folder
+#### 2.1. Running the tests and saving results into a result folder
 
 If you want to run the results and save them into the results folder which is in the root directory, open a terminal in the root directory and execute the following command:
 ```
 behave -f json -o ./results/result_file_name.json
 ```
 
-## Running the tests and fetching results with allure
+#### 2.2. Running the tests and fetching results with allure
 Allure Framework is a flexible multi-language test report tool  
 Allure shows a very concise representation of what has been tested in a neat web report form.  
 
 To do so, you first need to install allure on windows.
-### Steps to install allure
-#### Linux
+##### 2.2.1.Steps to install allure
+##### Linux
 ``` 
 sudo apt-add-repository ppa:qameta/allure
 sudo apt-get update 
@@ -98,7 +100,7 @@ iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
 scoop install allure
 ```  
 
-### Running tests with allure
+#### 2.2.2. Running tests with allure
 ```
 cd %project_root_directory%  
 behave -f allure_behave.formatter:AllureFormatter -o %allure_result_folder%  
@@ -106,7 +108,7 @@ allure serve %allure_result_folder%
 ```
 
 
-### Break down of the test scenarios
+### 3. Break down of the test scenarios
 
 The following scenario tests the creation of a new gist via the api with a valid json
 
