@@ -33,6 +33,9 @@ pip install compare
 ```
 pip install requests
 ```
+```
+pip install allure-behave
+```
 
 
 ## Running the tests
@@ -47,6 +50,29 @@ If you want to run the results and save them into the results folder which is in
 ```
 behave -f json -o ./results/result_file_name.json
 ```
+
+## Running the tests and fetching results with allure
+
+If you want to see the results in a more presentable way than a json file, you could use allure.
+To do so, you first need to install allure on windows.
+### Steps to install allure
+#### Install scoop 
+Scoop 
+1. Install scoop (https://scoop.sh/) 
+Scoop is a package manager for windows.
+Open windows Power shell and type in the following commands:
+```Set-ExecutionPolicy RemoteSigned -scope CurrentUser``` 
+then:
+```iex (new-object net.webclient).downloadstring('https://get.scoop.sh')```
+2. Install allure (Documentation: https://github.com/allure-framework/allure2)
+```scoop install allure```
+3. Run tests with allure-behave
+3.1. Go to the project's root directory 
+3.2. Run the following command : ```behave -f allure_behave.formatter:AllureFormatter -o %allure_result_folder% ```
+    This will generate JSON report to %allure_result_folder%. 
+3.3. Run the command: ```allure serve %allure_result_folder%```
+    This will allow you to view HTML report.
+
 
 ### Break down into end to end tests
 
