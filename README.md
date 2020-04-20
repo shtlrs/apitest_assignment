@@ -74,74 +74,74 @@ This will generate JSON report to ```%allure_result_folder% ```
     This will allow you to view HTML report.
 
 
-### Break down into end to end tests
+### Break down of the test scenarios
 
-This tests the creation of a new gist via the api with a valid json
+The following scenario tests the creation of a new gist via the api with a valid json
 
 ```
   Scenario: Create new gist with valid json
 ```
-This tests the creation of a new gist via the api with an invlid json body
+The following scenario tests the creation of a new gist via the api with an invlid json body
 
 ```
   Scenario: Create new gist with invalid json
 ```
-This tests the creation of a new gist via the api with a string
+The following scenario tests the creation of a new gist via the api with a string
 
 ```
   Scenario: Create new gist with a string
 ```
-This tests the creation of a new gist via the api with an integer
+The following scenario tests the creation of a new gist via the api with an integer
 
 ```
   Scenario: Create new gist with an integer
 ```
-This tests the creation of a new gist via the api with a boolean
+The following scenario tests the creation of a new gist via the api with a boolean
 
 ```
   Scenario: Create new gist with a boolean
 ```
-This tests the creation of a new gist via the api with a list
+The following scenario tests the creation of a new gist via the api with a list
 
 ```
   Scenario: Create new gist with a list
 ```
-This tests the creation of a new gist via the api with an invalid authentification token
+The following scenario tests the creation of a new gist via the api with an invalid authentification token
 
 ```
   Scenario:Create new gist with invalid token
 ```
-This tests the creation of a new gist via the api with no authentification token
+The following scenario tests the creation of a new gist via the api with no authentification token
 
 ```
   Scenario:Create new gist with no token
 ```
-This tests the reading of an existing gist
+The following scenario tests the reading of an existing gist
 
 ```
  Scenario: Retrieve an existing gist by id
 ```
-This tests the reading of an unexisting gist
+The following scenario tests the reading of an unexisting gist
 
 ```
   Scenario: Retrieve an unexisting gist by id
 ```
-This tests the updating of an existing gist
+The following scenario tests the updating of an existing gist
 
 ```
   Scenario: Update an existing gist
 ```
-This tests the updating of an unexisting gist
+The following scenario tests the updating of an unexisting gist
 
 ```
   Scenario: Update an unexisting gist
 ```
-This tests the deletion of an existing gist
+The following scenario tests the deletion of an existing gist
 
 ```
   Scenario: Delete an existing gist
 ```
-This tests the deletion of an unexisting gist
+The following scenario tests the deletion of an unexisting gist
 
 ```
   Scenario: Delete an unexisting gist
