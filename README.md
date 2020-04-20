@@ -32,7 +32,7 @@ pip install -r ./requirements.txt
 1. Install python  
 Open a terminal and execute the following:  
 ```
-brew install python
+brew install python3
 ```  
 2 . Install 3rd party libraries  
 After having installed python,  open a terminal in the project's root directory and execute the following
