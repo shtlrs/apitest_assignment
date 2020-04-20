@@ -40,7 +40,7 @@ After having installed python,  open a terminal in the project's root directory 
 pip install -r ./requirements.txt
 ```
 #### Windows 
-1. Install python ( Don't forget to add python to path)
+1. Install python ( **__Don't forget to add python to path__**)
 ```
 Python 3 (https://www.python.org/downloads/)
 ```  
