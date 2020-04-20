@@ -1,12 +1,12 @@
 # Project Title
 
-GitHub's Gist API test
+GitHub's Gist API test with Python's requests library.
 
 ## Getting Started
 
-This project was written in python to test Github's gist api.
-The test cases were developped using the Behavior Driven Development method.
-The requests were sent using python's 3rd party library: request.
+This project was written in python to test Github's gist api.  
+The test cases were developped using the Behavior Driven Development method.  
+The requests were sent using python's 3rd party library: requests.
 
 ### Prerequisites
 
