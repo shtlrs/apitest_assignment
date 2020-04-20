@@ -69,7 +69,7 @@ then:
 3. Run tests with allure-behave  
 3.1. Go to the project's root directory   
 3.2. Run the following command : ```behave -f allure_behave.formatter:AllureFormatter -o %allure_result_folder% ```  
-This will generate JSON report to %allure_result_folder%.   
+This will generate JSON report to ```%allure_result_folder% ```   
 3.3. Run the command: ```allure serve %allure_result_folder%```
     This will allow you to view HTML report.
 
