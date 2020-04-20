@@ -10,35 +10,43 @@ The requests were sent using python's 3rd party library: requests.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+To be able to run the tests, python and the 3rd party modules need to be installed.
+Depending on your plateform, here's how to do proceed:
 
-1. Install python ( Don't forget to add python to path)
+
+**1. Linux**  
+1.1 Install python  
+Open a terminal and execute the following:  
+```
+sudo apt-get update
+sudo apt-get install python3.6
+```  
+1.2.Install 3rd party libraries  
+After having installed python,  open a terminal in the project's root directory and execute the following
+```
+pip install -r ./requirements.txt
+```
+**2. Mac OS X**  
+2.1 Install python  
+Open a terminal and execute the following:  
+```
+brew install python
+```  
+2.2.Install 3rd party libraries  
+After having installed python,  open a terminal in the project's root directory and execute the following
+```
+pip install -r ./requirements.txt
+```
+**3. Windows**  
+3.1. Install python ( Don't forget to add python to path)
 ```
 Python 3 (https://www.python.org/downloads/)
 ```  
-2. Install 3rd party libraries
+3.2. Install 3rd party libraries  
+After having installed python,  open a terminal in the project's root directory and execute the following
 ```
-3rd party libraries that will be listed in the installing section
+pip install -r ./requirements.txt
 ```
-
-### Installing
-
-This section lists the third party python modules that need to be installed for this test to be run
-
-```
-pip install behave
-```
-
-```
-pip install compare
-```
-```
-pip install requests
-```
-```
-pip install allure-behave
-```
-
 
 ## Running the tests
 
@@ -66,22 +74,36 @@ Allure shows a very concise representation of what has been tested in a neat web
 
 To do so, you first need to install allure on windows.
 ### Steps to install allure
-#### Install scoop 
-Scoop 
-1. Install scoop (https://scoop.sh/) 
+**1. Linux**
+``` 
+sudo apt-add-repository ppa:qameta/allure
+sudo apt-get update 
+sudo apt-get install allure
+```
+**2. Mac OS X**
+```
+brew install allure
+```
+**3. Windows**  
+3.1. Install scoop (https://scoop.sh/) 
+ 
 Scoop is a package manager for windows.
-Open windows Power shell and type in the following commands:  
-```Set-ExecutionPolicy RemoteSigned -scope CurrentUser```  
-then:  
-```iex (new-object net.webclient).downloadstring('https://get.scoop.sh')```
-2. Install allure (Documentation: https://docs.qameta.io/allure/)
-```scoop install allure```
-3. Run tests with allure-behave  
-3.1. Go to the project's root directory   
-3.2. Run the following command : ```behave -f allure_behave.formatter:AllureFormatter -o %allure_result_folder% ```  
-This will generate JSON report to ```%allure_result_folder% ```   
-3.3. Run the command: ```allure serve %allure_result_folder%```
-    This will allow you to view HTML report.
+Open windows Power shell and type in the following commands:    
+```
+Set-ExecutionPolicy RemoteSigned -scope CurrentUser   
+iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
+```
+3.2. Install allure (Documentation: https://docs.qameta.io/allure/)  
+```
+scoop install allure
+```  
+
+### Running tests with allure
+```
+cd %project_root_directory%  
+behave -f allure_behave.formatter:AllureFormatter -o %allure_result_folder%  
+allure serve %allure_result_folder%
+```
 
 
 ### Break down of the test scenarios
