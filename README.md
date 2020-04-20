@@ -14,35 +14,35 @@ To be able to run the tests, python and the 3rd party modules need to be install
 Depending on your plateform, here's how to do proceed:
 
 
-**1. Linux**  
-1.1 Install python  
+#### Linux 
+1. Install python  
 Open a terminal and execute the following:  
 ```
 sudo apt-get update
 sudo apt-get install python3.6
 ```  
-1.2.Install 3rd party libraries  
+2. Install 3rd party libraries  
 After having installed python,  open a terminal in the project's root directory and execute the following
 ```
 pip install -r ./requirements.txt
 ```
-**2. Mac OS X**  
-2.1 Install python  
+#### Mac OS X
+1. Install python  
 Open a terminal and execute the following:  
 ```
 brew install python
 ```  
-2.2.Install 3rd party libraries  
+2. Install 3rd party libraries  
 After having installed python,  open a terminal in the project's root directory and execute the following
 ```
 pip install -r ./requirements.txt
 ```
-**3. Windows**  
-3.1. Install python ( Don't forget to add python to path)
+#### Windows 
+1. Install python ( Don't forget to add python to path)
 ```
 Python 3 (https://www.python.org/downloads/)
 ```  
-3.2. Install 3rd party libraries  
+2. Install 3rd party libraries  
 After having installed python,  open a terminal in the project's root directory and execute the following
 ```
 pip install -r ./requirements.txt
@@ -74,18 +74,18 @@ Allure shows a very concise representation of what has been tested in a neat web
 
 To do so, you first need to install allure on windows.
 ### Steps to install allure
-**1. Linux**
+#### Linux
 ``` 
 sudo apt-add-repository ppa:qameta/allure
 sudo apt-get update 
 sudo apt-get install allure
 ```
-**2. Mac OS X**
+#### Mac OS X
 ```
 brew install allure
 ```
-**3. Windows**  
-3.1. Install scoop (https://scoop.sh/) 
+#### Windows
+1. Install scoop (https://scoop.sh/) 
  
 Scoop is a package manager for windows.
 Open windows Power shell and type in the following commands:    
@@ -93,7 +93,7 @@ Open windows Power shell and type in the following commands:
 Set-ExecutionPolicy RemoteSigned -scope CurrentUser   
 iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
 ```
-3.2. Install allure (Documentation: https://docs.qameta.io/allure/)  
+2. Install allure (Documentation: https://docs.qameta.io/allure/)  
 ```
 scoop install allure
 ```  
