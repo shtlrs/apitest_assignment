@@ -184,7 +184,7 @@ The following scenario tests the deletion of an unexisting gist
 
 
 
-## Authors
+## Author
 
 * *Amrou Bellalouna* 
 
