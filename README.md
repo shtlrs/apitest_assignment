@@ -40,11 +40,18 @@ pip install allure-behave
 
 ## Running the tests
 
+###Note:  
+Before running the tests, you need to put in your personal acces token in the config file: section "KEYS"  
+Here are the steps to create a personal access token:  
+https://github.blog/2013-05-16-personal-api-tokens/
+
+
 To run all the test cases, open a terminal in the project's root directory and type to following command:
 
 ```
 behave
 ```
+## Running the tests and saving results into a result folder
 
 If you want to run the results and save them into the results folder which is in the root directory, open a terminal in the root directory and execute the following command:
 ```
@@ -52,8 +59,9 @@ behave -f json -o ./results/result_file_name.json
 ```
 
 ## Running the tests and fetching results with allure
+Allure Framework is a flexible multi-language test report tool  
+Allure shows a very concise representation of what has been tested in a neat web report form.  
 
-If you want to see the results in a more presentable way than a json file, you could use allure.
 To do so, you first need to install allure on windows.
 ### Steps to install allure
 #### Install scoop 
