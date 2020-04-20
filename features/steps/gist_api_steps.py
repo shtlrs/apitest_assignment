@@ -6,12 +6,12 @@ from configparser import ConfigParser
 from features.helpers.api_client_helper import apiClient
 from ast import literal_eval
 from compare import expect
-import sys
+import platform
 #----------Preconfiguration---------------#
 
-OS = sys.platform
+OS = platform.system()
 parser = ConfigParser()
-if OS =="win32":
+if OS =="Windows":
     path = os.path.join(os.getcwd(),"config\\config.ini")
 else:
     path = os.path.join(os.getcwd(), "config/config.ini")

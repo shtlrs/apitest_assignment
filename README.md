@@ -20,25 +20,18 @@ Open a terminal and execute the following:
 ```
 sudo apt-get update
 sudo apt-get install python3.6
+sudo apt-get install python3-pip
+alias pip=pip3
+alias python=python3
 ```  
 
  2 . Install 3rd party libraries
 
 After having installed python,  open a terminal in the project's root directory and execute the following
 ```
-pip install -r ./requirements.txt
+python -m pip install -r ./requirements.txt
 ```
-#### Mac OS X
-1. Install python  
-Open a terminal and execute the following:  
-```
-brew install python3
-```  
-2 . Install 3rd party libraries  
-After having installed python,  open a terminal in the project's root directory and execute the following
-```
-pip install -r ./requirements.txt
-```
+
 #### Windows 
 1. Install python ( **__Don't forget to add python to path__**)
 ```
@@ -82,9 +75,12 @@ sudo apt-add-repository ppa:qameta/allure
 sudo apt-get update 
 sudo apt-get install allure
 ```
-#### Mac OS X
+##### Note:  
+You  may encounter problems when executing allure later on, if you do so, here's a workaround for the problem:  
 ```
-brew install allure
+curl -o allure-2.6.0.tgz -Ls https://dl.bintray.com/qameta/generic/io/qameta/allure/allure/2.6.0/allure-2.6.0.tgz   
+sudo tar -zxvf allure-2.6.0.tgz -C /opt/   
+sudo ln -s /opt/allure-2.6.0/bin/allure /usr/bin/allure  
 ```
 #### Windows
 1. Install scoop (https://scoop.sh/) 
