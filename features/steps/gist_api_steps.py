@@ -6,10 +6,16 @@ from configparser import ConfigParser
 from features.helpers.api_client_helper import apiClient
 from ast import literal_eval
 from compare import expect
-
+import sys
 #----------Preconfiguration---------------#
+
+OS = sys.platform
 parser = ConfigParser()
-path = os.path.join(os.getcwd(),"config\\config.ini")
+if OS =="win32":
+    path = os.path.join(os.getcwd(),"config\\config.ini")
+else:
+    path = os.path.join(os.getcwd(), "config/config.ini")
+
 parser.read(path)
 
 url = parser.get("URLS","base_url")
