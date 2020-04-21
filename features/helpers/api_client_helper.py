@@ -105,3 +105,12 @@ class apiClient:
                                                'Authorization': 'bearer '+access_token},
                                       json=json.loads(json.dumps(body)))
         return self
+
+    def get_content(self,):
+        url = self.response.url
+        files = self.response.json()["files"]
+        public = self.response.json()["public"]
+        id = self.response.json()["id"]
+        description = self.response.json()["description"]
+
+        return url,files,public,id,description

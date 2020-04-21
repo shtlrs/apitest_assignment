@@ -18,7 +18,7 @@ else:
 
 parser.read(path)
 
-url = parser.get("URLS","base_url")
+base_url = parser.get("URLS","base_url")
 gists_endpoint = parser.get("URLS","gists_endpoint")
 access_token = parser.get("KEYS","access_token")
 gist_1 = literal_eval(parser.get("BODY","gist_1"))
@@ -35,7 +35,7 @@ improper_dict_gist = literal_eval(parser.get("BODY","improper_dict_gist"))
 
 #----------Creating an instance of the api Client class-----------#
 
-client = apiClient(url+gists_endpoint)
+client = apiClient(base_url+gists_endpoint)
 
 @given('user creates a new gist with {state}')
 def step_create_new_gist(context,state):
@@ -147,7 +147,7 @@ def step_assert_response_code(context,code):
     status_code = client.get_status_code()
     expect(status_code).to_equal(int(code))
 
-@then('the description of gist {gist_number} should be correct')
+@then('the content of gist {gist_number} should be correct')
 def step_assert_gist_description(context,gist_number):
     """
     Compare the created or updated gist's description with the initial description
@@ -157,10 +157,19 @@ def step_assert_gist_description(context,gist_number):
     :type code: string
     """
 
-    description = client.get_description()
+    url,files,public,id,description = client.get_content()
     if gist_number == 1:
         expect(description).to_equal(gist_1["description"])
+        expect(url).to_equal(base_url+gists_endpoint+'/'+id)
+        expect(files).to_equal(gist_1["files"])
+        expect(public).to_equal(gist_1['public'])
     elif gist_number == 2:
         expect(description).to_equal(gist_2["description"])
+        expect(url).to_equal(base_url + gists_endpoint + '/' + id)
+        expect(files).to_equal(gist_2["files"])
+        expect(public).to_equal(gist_2['public'])
     elif gist_number == 5:
         expect(description).to_equal(gist_5["description"])
+        expect(url).to_equal(base_url + gists_endpoint + '/' + id)
+        expect(files).to_equal(gist_5["files"])
+        expect(public).to_equal(gist_5['public'])
