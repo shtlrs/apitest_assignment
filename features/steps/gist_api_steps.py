@@ -1,19 +1,20 @@
+# Package imports
 from behave import *
 
 from configparser import ConfigParser
-from features.helpers.api_client_helper import apiClient
+from features.helpers.api_client_helper import ApiClient
 from ast import literal_eval
 from compare import expect
 from pathlib import Path, PurePosixPath
-#----------Preconfiguration---------------#
 
-#Create parser instance for the config file
+
+# Config parser initialization
 parser = ConfigParser()
-#Cross platform  path join ( Windows & Linux )
 path = (PurePosixPath(Path.cwd().as_posix()).joinpath('config/config.ini')).as_posix()
 parser.read(path)
 
-#Get the data that will be used during the tests (endpoint, gists)
+# Config variables imports
+
 base_url = parser.get("URLS","base_url")
 gists_endpoint = parser.get("URLS","gists_endpoint")
 access_token = parser.get("KEYS","access_token")
@@ -28,13 +29,9 @@ boolean_gist = literal_eval(parser.get("BODY","boolean_gist"))
 list_gist = literal_eval(parser.get("BODY","list_gist"))
 improper_dict_gist = literal_eval(parser.get("BODY","improper_dict_gist"))
 
-
-#----------Creating an instance of the api Client class-----------#
-
-client = apiClient(base_url+gists_endpoint)
+client = ApiClient(base_url+gists_endpoint)
 
 #Step definitions
-
 @given('user creates a new gist with {state}')
 def step_create_new_gist(context,state):
     """

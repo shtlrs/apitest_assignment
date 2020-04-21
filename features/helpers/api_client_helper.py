@@ -1,10 +1,15 @@
+# Package imports
 import requests
 import json
 
 
-class apiClient:
 
-    def __init__(self,endpoint):
+class ApiClient:
+    """
+    Create a client that will communicate with an API's endpoint
+    """
+
+    def __init__(self, endpoint):
         """
         Initialize the api client
         
@@ -12,12 +17,10 @@ class apiClient:
         :type endpoint: string
 
         """
+
         self.endpoint = endpoint
 
-
-
-
-    def create_gist(self,body,access_token):
+    def create_gist(self, body, access_token):
         """
         Create a gist.
         
@@ -28,9 +31,9 @@ class apiClient:
 
         """
         self.response = requests.post(url=self.endpoint,
-                                     headers={'Content-Type': 'application/json',
-                                               'Authorization':'bearer '+access_token},
-                                     json=json.loads(json.dumps(body)))
+                                      headers={'Content-Type': 'application/json',
+                                               'Authorization': 'bearer ' + access_token},
+                                      json=json.loads(json.dumps(body)))
         return self
 
     def get_gist_id(self):
@@ -55,12 +58,16 @@ class apiClient:
         return status_code
 
     def get_description(self):
-
+        """
+        Returns the gist's description
+        :return: desciption: the gist's description
+        :rtype: string
+        """
         description = self.response.json()["description"]
 
         return description
 
-    def get_gist(self,id,access_token):
+    def get_gist(self, id, access_token):
         """
         Retrieve a specific gist by it's id
         :param id: id of the gist to be read
@@ -68,13 +75,13 @@ class apiClient:
         :param access_token: the authentication token to allow access to gists
         :type access_token: string
         """
-        self.response = requests.get(url=self.endpoint+'/'+id,
+        self.response = requests.get(url=self.endpoint + '/' + id,
                                      headers={'Content-Type': 'application/json',
-                                              'Authorization': 'bearer '+access_token}
+                                              'Authorization': 'bearer ' + access_token}
                                      )
         # print(self.response.content)
 
-    def delete_gist(self,id,access_token):
+    def delete_gist(self, id, access_token):
         """
         Deletes a specific gist by id
         :param id: id of the gist to be deleted
@@ -83,11 +90,10 @@ class apiClient:
         :type access_token: string
         """
         self.response = requests.delete(url=self.endpoint + '/' + id,
-                                     headers={'Content-Type': 'application/json',
-                                              'Authorization': 'bearer ' + access_token})
+                                        headers={'Content-Type': 'application/json',
+                                                 'Authorization': 'bearer ' + access_token})
 
-
-    def update_gist(self,id,body,access_token):
+    def update_gist(self, id, body, access_token):
         """
         Updates a specific gist by id
 
@@ -102,15 +108,28 @@ class apiClient:
         """
         self.response = requests.post(url=self.endpoint + '/' + id,
                                       headers={'Content-Type': 'application/json',
-                                               'Authorization': 'bearer '+access_token},
+                                               'Authorization': 'bearer ' + access_token},
                                       json=json.loads(json.dumps(body)))
         return self
 
-    def get_content(self,):
+    def get_content(self, ):
+        """
+        Returns the url, files, description, id and the gist's type(public or secret),
+        :return: url: gist's url
+        :rtype: string
+        :return: files: the gist's files
+        :rtype:  dict
+        :return: public: the gist type: public or secret
+        :rtype: boolean
+        :return: id: the gist's id
+        :rtype: string
+        :return: description: the gist's description
+        :rtype: string
+        """
         url = self.response.url
         files = self.response.json()["files"]
         public = self.response.json()["public"]
         id = self.response.json()["id"]
         description = self.response.json()["description"]
 
-        return url,files,public,id,description
+        return url, files, public, id, description
