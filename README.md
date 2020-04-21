@@ -15,7 +15,7 @@ Depending on your plateform, here's how to do proceed:
 
 
 #### Linux 
-1. Install python  
+1. Install python and setup a virtual environment for the tests:  
 Open a terminal and execute the following:  
 ```
 sudo apt-get update
@@ -23,13 +23,18 @@ sudo apt-get install python3.6
 sudo apt-get install python3-pip
 alias pip=pip3
 alias python=python3
+pip install virtualenv
+virtualenv %venv_name%
+source %venv_name%/bin/activate
+git clone https://github.com/shtlrs/apitest_assignment.git
+cd apitest_assignment
 ```  
 
  2 . Install 3rd party libraries
 
-After having installed python,  open a terminal in the project's root directory and execute the following
+After having installed python and setting up the virtual environment, open a terminal in the project's root directory and execute the following
 ```
-python -m pip install -r ./requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 #### Windows 
@@ -37,10 +42,19 @@ python -m pip install -r ./requirements.txt
 ```
 Python 3 (https://www.python.org/downloads/)
 ```  
+Once python in installed open a terminal and execute the following:
+```
+pip install virtualenv
+virtualenv %venv_name%
+%venv_name%\Scripts\activate
+git clone https://github.com/shtlrs/apitest_assignment.git
+cd apitest_assignment
+
+```
 2 .Install 3rd party libraries  
 After having installed python,  open a terminal in the project's root directory and execute the following
 ```
-pip install -r ./requirements.txt
+pip install -r requirements.txt
 ```
 
 ### 2. Running the tests
@@ -101,6 +115,12 @@ scoop install allure
 cd %project_root_directory%  
 behave -f allure_behave.formatter:AllureFormatter -o %allure_result_folder%  
 allure serve %allure_result_folder%
+```
+#### 2.2.3. Deactivate the virutal env
+Whether the OS is Linux or Windows, open a terminal and execute:   
+
+```
+deactivate
 ```
 
 
