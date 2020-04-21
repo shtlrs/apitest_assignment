@@ -7,14 +7,12 @@ from features.helpers.api_client_helper import apiClient
 from ast import literal_eval
 from compare import expect
 import platform
+from pathlib import Path, PurePosixPath
 #----------Preconfiguration---------------#
 
-OS = platform.system()
+
 parser = ConfigParser()
-if OS =="Windows":
-    path = os.path.join(os.getcwd(),"config\\config.ini")
-else:
-    path = os.path.join(os.getcwd(), "config/config.ini")
+path = (PurePosixPath(Path.cwd().as_posix()).joinpath('config/config.ini')).as_posix()
 
 parser.read(path)
 
