@@ -5,7 +5,7 @@ GitHub's Gist API test with Python's requests library.
 ## Getting Started
 
 This project was written in python to test Github's gist api.  
-The test cases were developped using the Behavior Driven Development method.  
+The test cases were developped using the Behavior Driven Development method: (https://cucumber.io/docs/bdd/)  
 The requests were sent using python's 3rd party library: requests.
 
 ### 1. Prerequisites
