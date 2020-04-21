@@ -1,21 +1,19 @@
 from behave import *
-import requests
-import json
-import os
+
 from configparser import ConfigParser
 from features.helpers.api_client_helper import apiClient
 from ast import literal_eval
 from compare import expect
-import platform
 from pathlib import Path, PurePosixPath
 #----------Preconfiguration---------------#
 
-
+#Create parser instance for the config file
 parser = ConfigParser()
+#Cross platform  path join ( Windows & Linux )
 path = (PurePosixPath(Path.cwd().as_posix()).joinpath('config/config.ini')).as_posix()
-
 parser.read(path)
 
+#Get the data that will be used during the tests (endpoint, gists)
 base_url = parser.get("URLS","base_url")
 gists_endpoint = parser.get("URLS","gists_endpoint")
 access_token = parser.get("KEYS","access_token")
@@ -34,6 +32,8 @@ improper_dict_gist = literal_eval(parser.get("BODY","improper_dict_gist"))
 #----------Creating an instance of the api Client class-----------#
 
 client = apiClient(base_url+gists_endpoint)
+
+#Step definitions
 
 @given('user creates a new gist with {state}')
 def step_create_new_gist(context,state):
@@ -148,8 +148,8 @@ def step_assert_response_code(context,code):
 @then('the content of gist {gist_number} should be correct')
 def step_assert_gist_description(context,gist_number):
     """
-    Compare the created or updated gist's description with the initial description
-    This function is fired when parsing the feature file to validate that the gists have the correct description
+    Compare the created or updated gist's content with the initial one
+    This function is fired when parsing the feature file to validate that the gists have the correct content
     :param context: object used to hold contextual information during the running of tests
     :param gist_number: number of the gist that was  created/ read or updated
     :type code: string
