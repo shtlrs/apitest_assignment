@@ -105,7 +105,6 @@ def step_update_gist(context,state):
     if state == "existing":
         client.create_gist(gist_3,access_token)
         id = client.get_gist_id()
-        print("HAW EL ID YA ZEBBI:", id)
         client.update_gist(id,gist_5,access_token)
     elif state =="unexisting":
         client.update_gist("blabliblou",gist_5,access_token)
@@ -124,7 +123,6 @@ def step_delete_gist(context,state):
     if state == "existing":
         client.create_gist(gist_3,access_token)
         id = client.get_gist_id()
-        print("HAW EL ID YA ZEBBI:", id)
         client.delete_gist(id,access_token)
     elif state =="unexisting":
         client.delete_gist("blabliblou",access_token)
